@@ -2,12 +2,12 @@
 
 void	check_strcpy()
 {
-	char dst[5];
+	char dst[20];
 	const char *src;
 	char *r1;
 	char *r2;
 
-	src = "1234";
+	src = "uirhbvpiu34r98fhwfv";
 	r1 = strcpy(dst, src);
 	printf("original:  %s\n", r1);
 	r2 = ft_strcpy(dst, src);
