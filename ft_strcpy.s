@@ -5,15 +5,15 @@ _ft_strcpy:
 		jmp loop
 
 loop:
-		mov rcx, [rdi + rax]			; запись из 'src' в rcx
-		cmp rcx, 0						; if (*src == 0)
+		mov cl, [rsi + rax]				; запись из 'src' в cl(один символ = 8 бит)
+		cmp cl, 0						; if (*src == 0)
 		je	exit						; прыжок в exit, если (*src == 0)
-		mov [rdi + rax] ,rcx			; запись из rcx ('src') в 'dst'
+		mov byte [rdi + rax] ,cl		; запись из cl ('src') в 'dst'
 		inc rax							; rax++
 		jmp loop						; цикл с самого начала
 
 exit:
-		mov rcx, 0
-		mov [rdi + rax], rcx
+		mov cl, 0
+		mov [rdi + rax], cl
 		mov rax, rdi
 		ret
