@@ -5,12 +5,12 @@ _ft_strcmp:
 		jmp loop
 
 loop:
+		mov dl, [rdi + rax]		; запись из 's1' в dl
 		mov cl, [rsi + rax]		; запись из 's2' в cl
-		mov dl, [rdi + rax]		; запись из 's1' в cl
-		sub cl, dl
-		cmp cl, 0
-		jl exit1
-		jg exit2
+		sub cl, dl				; cl = cl - dl
+		cmp cl, 0				; сравнение с 0
+		jl exit1				; прыжок в exit1 если (cl < 0)
+		jg exit2				; прыжок в exit1 если (cl > 0)
 		cmp cl, dl				; сравнение 's1' и 's2'
 		je exit3				; прыжок в exit3, если они равны
 		inc rax
